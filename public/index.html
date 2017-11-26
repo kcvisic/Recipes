@@ -16,6 +16,8 @@
               v-if="c.Recipes.length > 0"
               @click.native="setCategory(c)"
               :index="i">
+      <img :src="c.image"/>
+
         <figure>
           <figcaption>{{c.name}}</figcaption>
         </figure>
