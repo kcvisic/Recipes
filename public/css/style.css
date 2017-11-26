@@ -1,0 +1,17 @@
+
+body{
+
+
+}
+#carousel{
+
+  display:flex;
+  justify-content:center;
+  background-color: #9e7978;
+}
+#recipeBackground{
+  background-color: #9e7978;
+}
+#contentBackground{
+  background-image: url("/images/img2.jpg");
+}

@@ -2,35 +2,37 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/styleRecipe1.css">
+
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="/vuetify/dist/vuetify.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Index Recipe</title>
 </head>
 
 <body>
   <div id="app">
 
+
     <carousel-3d v-if="showCategories">
-      <slide  v-for="(c, i) in categories"
+      <slide v-for="(c, i) in categories"
               v-if="c.Recipes.length > 0"
               @click.native="setCategory(c)"
               :index="i">
       <img :src="c.image"/>
 
         <figure>
-          <figcaption>{{c.name}}</figcaption>
+          <figcaption id="carousel" class="headline mb-0" >{{c.name}}</figcaption>
         </figure>
       </slide>
     </carousel-3d>
-    <v-app>
+    <v-app  id="contentBackground" >
       <v-content>
-        <v-container>
+        <v-container id="recipeBackground" >
           <div>
   <!-- <template is used to render the code within it you can use all the vue attributes
    like v-for and v-if to repeat and conditionally render blocks of code> -->
 
-            <template v-for="c in categories">
+            <template  v-for="c in categories">
 
               <v-card v-if="currentCategory.name === c.name ">
                 <v-toolbar color="Grey" dark>
