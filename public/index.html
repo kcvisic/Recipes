@@ -10,9 +10,12 @@
 
 <body>
   <div id="app">
+
     <carousel-3d v-if="showCategories">
-      <slide @click.native="setCategory(c)" v-for="(c, i) in categories" :index="i" v-if="c.Recipes.length > 0"  >
-      
+      <slide  v-for="(c, i) in categories"
+              v-if="c.Recipes.length > 0"
+              @click.native="setCategory(c)"
+              :index="i">
         <figure>
           <figcaption>{{c.name}}</figcaption>
         </figure>
@@ -22,7 +25,11 @@
       <v-content>
         <v-container>
           <div>
+  <!-- <template is used to render the code within it you can use all the vue attributes
+   like v-for and v-if to repeat and conditionally render blocks of code> -->
+
             <template v-for="c in categories">
+
               <v-card v-if="currentCategory.name === c.name ">
                 <v-toolbar color="Grey" dark>
                   <v-toolbar-title>{{c.name}}</v-toolbar-title>
@@ -30,6 +37,7 @@
                 <div>
                   <v-card>
                     <v-list>
+                      <!-- loop through recipes in category, and dispaly only recipe name -->
                         <v-list-tile @click="setRecipe(r)" v-for="r in c.Recipes">
                           <v-list-tile-content>
                            <v-list-tile-title v-text="r.name"></v-list-tile-title>

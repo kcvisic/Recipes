@@ -1,8 +1,10 @@
 -- Table: Categories
-insert into categories(name) VALUES('Chicken');
-insert into categories(name) VALUES('Beef');
-insert into categories(name) VALUES('Fish');
-insert into categories(name) VALUES('Pizza');
+insert into categories(name, image)
+  VALUES
+('Chicken',"http://cdn.kitchme.com/recipes/1200x800/thai-grilled-chicken-thighs_1174.jpg"),
+('Beef', "https://paleoleap.com/pictures/j-paleo/pepper-steak/pepper-steak-main.jpg"),
+('Fish', "https://prods3.imgix.net/images/articles/2015_11/Hero-Whole-Fish-Best-Grilled-Roasted-Fish-Recipe-Entertaining.jpg?auto=format,compress"),
+('Pizza', "http://www.simplyrecipes.com/wp-content/uploads/2007/01/homemade-pizza-horiz-a-1200.jpg");
 
 
 -- Recipe #1

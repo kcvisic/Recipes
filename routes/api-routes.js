@@ -47,8 +47,8 @@ module.exports = function(app) {
           db.Direction,
         ]
       }]
-    }).then(function(recipe) {
-      res.json(recipe);
+    }).then(function(category) {
+      res.json(category);
     });
   });
 
