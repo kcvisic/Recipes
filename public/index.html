@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/styleRecipe1.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="/vuetify/dist/vuetify.css" rel="stylesheet">
+  <title>Index Recipe</title>
+</head>
+
+<body>
+  <div id="app">
+    <carousel-3d v-if="showCategories">
+      <slide @click.native="setCategory(c)" v-for="(c, i) in categories" :index="i" v-if="c.Recipes.length > 0"  >
+      
+        <figure>
+          <figcaption>{{c.name}}</figcaption>
+        </figure>
+      </slide>
+    </carousel-3d>
+    <v-app>
+      <v-content>
+        <v-container>
+          <div>
+            <template v-for="c in categories">
+              <v-card v-if="currentCategory.name === c.name ">
+                <v-toolbar color="Grey" dark>
+                  <v-toolbar-title>{{c.name}}</v-toolbar-title>
+                </v-toolbar>
+                <div>
+                  <v-card>
+                    <v-list>
+                        <v-list-tile @click="setRecipe(r)" v-for="r in c.Recipes">
+                          <v-list-tile-content>
+                           <v-list-tile-title v-text="r.name"></v-list-tile-title>
+                          </v-list-tile-content>
+                        </v-list-tile>
+                    </v-list>
+                  </v-card>
+                </div>
+              </v-card>
+            </template>
+          </div>
+
+          <template v-if="showRecipeInfo">
+            <v-card style="margin-top: 20px; padding-bottom:5px;">
+
+              <v-toolbar color="pink" dark>
+                <v-toolbar-title>{{currentRecipe.name}}</v-toolbar-title>
+              </v-toolbar>
+
+              <v-card style="margin:20px;">
+                <v-toolbar color="blue" dark>
+                  <v-toolbar-title>Ingredients</v-toolbar-title>
+                </v-toolbar>
+                <v-list>
+                  <v-list-tile v-for="i in currentRecipe.Ingredients ">
+                    <v-list-tile-content>
+                     <v-list-tile-title v-text="i.name"></v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
+
+              <v-card style="margin:20px;">
+                <v-toolbar color="blue" dark>
+                  <v-toolbar-title>Directions</v-toolbar-title>
+                </v-toolbar>
+                <v-list>
+                  <v-list-tile v-for="d in currentRecipe.Directions">
+                    <v-list-tile-content>
+                     <v-list-tile-title v-text="d.stepDirection"></v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
+
+            </v-card>
+          </template>
+
+        </v-container>
+      </v-content>
+    </v-app>
+
+  </div>
+</body>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/vue/dist/vue.js"></script>
+<script src="/vuetify/dist/vuetify.js"></script>
+<script src="/vue-carousel-3d/dist/vue-carousel-3d.min.js"></script>
+<script src="/js/index.js"></script>
+
+
+</html>
