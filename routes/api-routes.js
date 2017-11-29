@@ -54,7 +54,6 @@ module.exports = function(app) {
 
   app.post('/api/recipe/add/', function(req, res){
    console.log(req.body);
-   console.log(req.body.ingredientName.length);
 
     db.Recipe.create({
       name: req.body.recipeName

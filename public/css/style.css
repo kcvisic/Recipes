@@ -1,6 +1,7 @@
+body {
 
-body{
-
+  background-image: url("/images/img5.jpg");
+   background-repeat: repeat-x;
 
 }
 #carousel{
@@ -13,5 +14,29 @@ body{
   background-color: #9e7978;
 }
 #contentBackground{
-  background-image: url("/images/img2.jpg");
+  background-image: url("/images/img5.jpg");
+}
+#recipeToolbar{
+  /*background-color: #525b8c96;*/
+  background-image: url("/images/img5.jpg");
+   background-repeat: repeat-x;
+}
+#currentRecipeToolbar{
+  background-image: url("/images/img5.jpg");
+   background-repeat: repeat-x;
+}
+#IngredientsToolbar{
+  background-image: url("/images/img5.jpg");
+   background-repeat: repeat-x;
+}
+#directionsToolbar{
+  background-image: url("/images/img5.jpg");
+   background-repeat: repeat-x;
+}
+#textBox{
+  margin-top:20px;
+}
+#background{
+  background-image: url("/images/img5.jpg");
+  
 }

@@ -35,8 +35,8 @@
             <template  v-for="c in categories">
 
               <v-card v-if="currentCategory.name === c.name ">
-                <v-toolbar color="Grey" dark>
-                  <v-toolbar-title>{{c.name}}</v-toolbar-title>
+                <v-toolbar id="recipeToolbar">
+                  <v-toolbar-title >{{c.name}}</v-toolbar-title>
                 </v-toolbar>
                 <div>
                   <v-card>
@@ -57,12 +57,12 @@
           <template v-if="showRecipeInfo">
             <v-card style="margin-top: 20px; padding-bottom:5px;">
 
-              <v-toolbar color="pink" dark>
+              <v-toolbar id="currentRecipeToolbar">
                 <v-toolbar-title>{{currentRecipe.name}}</v-toolbar-title>
               </v-toolbar>
 
               <v-card style="margin:20px;">
-                <v-toolbar color="blue" dark>
+                <v-toolbar id="IngredientsToolbar">
                   <v-toolbar-title>Ingredients</v-toolbar-title>
                 </v-toolbar>
                 <v-list>
@@ -75,7 +75,7 @@
               </v-card>
 
               <v-card style="margin:20px;">
-                <v-toolbar color="blue" dark>
+                <v-toolbar id="directionsTool">
                   <v-toolbar-title>Directions</v-toolbar-title>
                 </v-toolbar>
                 <v-list>

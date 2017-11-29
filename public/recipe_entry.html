@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="/vuetify/dist/vuetify.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Index Recipe</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <v-app id="background">
+      <v-content>
+        <v-container>
+          <!-- set the step number to 1 -->
+          <v-stepper light v-model="currentStep">
+            <!-- show steps in stepper header -->
+            <v-stepper-header>
+              <v-stepper-step step="1" :complete="currentStep > 1">Pick a Category</v-stepper-step>
+              <v-divider></v-divider>
+              <v-stepper-step step="2" :complete="currentStep > 2">Name Your Recipe</v-stepper-step>
+              <v-divider></v-divider>
+              <v-stepper-step step="3" :complete="currentStep > 3">List Your Ingredients</v-stepper-step>
+              <v-divider></v-divider>
+              <v-stepper-step step="4">List Your Directions</v-stepper-step>
+            </v-stepper-header>
+            <v-divider></v-divider>
+            <v-stepper-content step="1">
+              <v-card>
+                <v-toolbar :color="toolbarColor" dark>
+                  <v-toolbar-title>Category</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <v-select v-model="currentCategory" label="Select a category" :items="categories" item-text="name" item-value="name">
+                  </v-select>
+                </v-card-text>
+              </v-card>
+              <br />
+              <v-btn color="primary" @click.native="currentStep=currentStep+1">{{stepNextText}}</v-btn>
+
+
+            </v-stepper-content>
+            <v-stepper-content step=2>
+              <v-card>
+                <v-toolbar :color="toolbarColor" dark>
+                  <v-toolbar-title>Recipe Name</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <v-container fluid>
+                    <v-layout>
+                      <v-flex xs12>
+                        <v-layout>
+                            <v-flex xs10>
+                        <v-text-field v-model="recipeName" label="Recipe Name"></v-text-field>
+                          </v-flex>
+                        <v-flex xs2>
+                          <v-btn style="margin:30px" @click="AddRecipe(recipeName)" success>Add</v-btn>
+                        </v-flex>
+                        </v-layout>
+                      </v-flex>
+                  </v-layout>
+                  <v-layout>
+                    <v-flex xs-12>
+                      <v-card>
+                        <v-toolbar color="" dark>
+                          <v-toolbar-title>recipe name</v-toolbar-title>
+                        </v-toolbar>
+                        <v-card-text>
+                          <v-list style="min-height:50px;">
+                            <v-list-tile @click="" v-for="r in recipes">
+                              {{r}}
+                            </v-list-tile>
+                          </v-list>
+                        </v-card-text>
+                      </v-card>
+                    </v-flex>
+                  </v-layout>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+              <br />
+              <v-btn color="primary" @click.native="currentStep=currentStep+1">{{stepNextText}}</v-btn>
+              <v-btn flat @click.native="currentStep=currentStep-1">{{stepBackText}}</v-btn>
+            </v-stepper-content>
+            <v-stepper-content step="3">
+              <v-card>
+                <v-toolbar :color="toolbarColor" dark>
+                  <v-toolbar-title>Ingredients</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <v-container fluid>
+                    <v-layout>
+                      <v-flex xs12>
+                        <v-layout>
+                          <v-flex xs10>
+                            <v-text-field label="Add Ingredient" v-model="ingredient"></v-text-field>
+                          </v-flex>
+                          <v-flex xs2>
+                            <v-btn style="margin:30px" @click="addIngredient(ingredient)" success>Add</v-btn>
+                          </v-flex>
+                        </v-layout>
+                      </v-flex>
+                    </v-layout>
+                    <v-layout>
+                      <v-flex xs-12>
+                        <v-card>
+                          <v-toolbar color="" dark>
+                            <v-toolbar-title>Current Ingredients</v-toolbar-title>
+                          </v-toolbar>
+                          <v-card-text>
+                            <v-list style="min-height:50px;">
+                              <v-list-tile @click="" v-for="i in ingredients">
+                                {{i}}
+                              </v-list-tile>
+                            </v-list>
+                          </v-card-text>
+                        </v-card>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+              <br />
+              <v-btn color="primary" @click.native="currentStep=currentStep+1">{{stepNextText}}</v-btn>
+              <v-btn flat @click.native="currentStep=currentStep-1">{{stepBackText}}</v-btn>
+            </v-stepper-content>
+            <v-stepper-content step="4">
+              <v-card>
+                <v-toolbar :color="toolbarColor" dark>
+                  <v-toolbar-title>Directions</v-toolbar-title>
+                </v-toolbar>
+                <v-card-text>
+                  <v-container fluid>
+                    <v-layout>
+                      <v-flex xs10>
+                        <v-text-field label="addDirection" v-model="direction"></v-text-field>
+                      </v-flex>
+                      <v-flex xs2>
+                        <v-btn style="margin:30px" @click="  addDirection(direction)" success>Add></v-btn>
+                      </v-flex>
+                    </v-layout>
+                    <v-layout>
+                      <v-flex xs-12>
+                        <v-card>
+                          <v-toolbar color="" dark>
+                            <v-toolbar-title>Current Directions</v-toolbar-title>
+                          </v-toolbar>
+                          <v-card-text>
+                            <v-list style="min-height:50px;">
+                              <v-list-tile @click="" v-for="d in directions">
+                                {{d}}
+                                <div>
+                                  <v-btn style="position:sticky" color="error" dark>clear</v-btn>
+                                </div </v-list-tile>
+                            </v-list>
+                          </v-card-text>
+                        </v-card>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+              <br />
+              <v-btn color="success" @click.native="">{{stepSubmitText}}</v-btn>
+              <v-btn flat @click.native="currentStep=currentStep-1">{{stepBackText}}</v-btn>
+            </v-stepper-content>
+          </v-stepper>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
+</body>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/vue/dist/vue.js"></script>
+<script src="/vuetify/dist/vuetify.js"></script>
+<script src="/vue-carousel-3d/dist/vue-carousel-3d.min.js"></script>
+<script src="/js/recipe_entry.js"></script>
+
+
+</html>

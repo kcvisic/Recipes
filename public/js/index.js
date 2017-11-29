@@ -1,4 +1,5 @@
 Vue.use(Vuetify);
+
 Vue.component('carousel-3d', Carousel3d.Carousel3d);
 Vue.component('slide', Carousel3d.Slide);
 
