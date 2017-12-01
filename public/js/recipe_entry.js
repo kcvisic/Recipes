@@ -17,7 +17,10 @@ var app = new Vue({
       stepBackText: "Back",
       stepSubmitText: "Submit",
       toolbarColor: "pink",
-    
+      clearable:false,
+      chip:true ,
+
+
   },
 
   methods: {
@@ -33,15 +36,22 @@ var app = new Vue({
     AddRecipe(recipe){
       this.recipes.push(recipe);
       console.log(recipe)
+      this.clearable= true
+      this.chip=true
     },
     addIngredient(ingredient){
       this.ingredients.push(ingredient);
-
+      this.clearable= true
+      this.chip=true
     },
     addDirection(direction){
       this.directions.push(direction)
       console.log(direction)
+      this.clearable= true
+      this.chip=true
     },
+
+
   },
     created: function() {
       this.FoodCategories();

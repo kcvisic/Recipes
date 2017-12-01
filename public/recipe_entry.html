@@ -54,7 +54,7 @@
                       <v-flex xs12>
                         <v-layout>
                             <v-flex xs10>
-                        <v-text-field v-model="recipeName" label="Recipe Name"></v-text-field>
+                        <v-text-field  clearable="clearable" v-model="recipeName" label="Recipe Name"></v-text-field>
                           </v-flex>
                         <v-flex xs2>
                           <v-btn style="margin:30px" @click="AddRecipe(recipeName)" success>Add</v-btn>
@@ -69,10 +69,16 @@
                           <v-toolbar-title>recipe name</v-toolbar-title>
                         </v-toolbar>
                         <v-card-text>
+
                           <v-list style="min-height:50px;">
-                            <v-list-tile @click="" v-for="r in recipes">
-                              {{r}}
+                            <v-list-tile @click.native="" v-for="(r ,index) in recipes">
+
+                              <v-chip
+                                close @input="recipes.splice(index, 1)"
+                                color="red"
+                               text-color="white">{{r}}</v-chip>
                             </v-list-tile>
+
                           </v-list>
                         </v-card-text>
                       </v-card>
@@ -96,7 +102,7 @@
                       <v-flex xs12>
                         <v-layout>
                           <v-flex xs10>
-                            <v-text-field label="Add Ingredient" v-model="ingredient"></v-text-field>
+                            <v-text-field  clearable="clearable" label="Add Ingredient" v-model="ingredient"></v-text-field>
                           </v-flex>
                           <v-flex xs2>
                             <v-btn style="margin:30px" @click="addIngredient(ingredient)" success>Add</v-btn>
@@ -112,8 +118,10 @@
                           </v-toolbar>
                           <v-card-text>
                             <v-list style="min-height:50px;">
-                              <v-list-tile @click="" v-for="i in ingredients">
-                                {{i}}
+                              <v-list-tile @click.native="" v-for="(i, index) in ingredients">
+                                <v-chip close @input="ingredients.splice(index, 1)"
+                                  color="red"
+                                 text-color="white">{{i}}</v-chip>
                               </v-list-tile>
                             </v-list>
                           </v-card-text>
@@ -136,7 +144,7 @@
                   <v-container fluid>
                     <v-layout>
                       <v-flex xs10>
-                        <v-text-field label="addDirection" v-model="direction"></v-text-field>
+                        <v-text-field clearable="clearable" label="addDirection" v-model="direction"></v-text-field>
                       </v-flex>
                       <v-flex xs2>
                         <v-btn style="margin:30px" @click="  addDirection(direction)" success>Add></v-btn>
@@ -150,11 +158,14 @@
                           </v-toolbar>
                           <v-card-text>
                             <v-list style="min-height:50px;">
-                              <v-list-tile @click="" v-for="d in directions">
-                                {{d}}
-                                <div>
-                                  <v-btn style="position:sticky" color="error" dark>clear</v-btn>
-                                </div </v-list-tile>
+
+
+                              <v-list-tile @click.native="" v-for="(d , index) in directions">
+
+                                <v-chip close @input="directions.splice(index, 1)"
+                                  color="red"
+                                 text-color="white">{{d}}</v-chip>
+                                </v-list-tile>
                             </v-list>
                           </v-card-text>
                         </v-card>
