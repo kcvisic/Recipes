@@ -11,7 +11,7 @@ var app = new Vue({
       ingredient: "",
       directions: [],
       direction:"",
-      recipes:[],
+      // recipes:[],
       recipeName: "",
       stepNextText: "Continue",
       stepBackText: "Back",
@@ -19,6 +19,7 @@ var app = new Vue({
       toolbarColor: "pink",
       clearable:false,
       chip:true ,
+      addedFood:true
 
 
   },
@@ -33,12 +34,12 @@ var app = new Vue({
         }
       })
     },
-    AddRecipe(recipe){
-      this.recipes.push(recipe);
-      console.log(recipe)
-      this.clearable= true
-      this.chip=true
-    },
+    // AddRecipe(recipe){
+    //   this.recipes.push(recipe);
+    //   console.log(recipe)
+    //   this.clearable= true
+    //   this.chip=true
+    // },
     addIngredient(ingredient){
       this.ingredients.push(ingredient);
       this.clearable= true
@@ -50,6 +51,21 @@ var app = new Vue({
       this.clearable= true
       this.chip=true
     },
+    addFoodToDatabase: function() {
+  $.ajax({
+    method: "POST",
+    url: "/api/entry",
+    data: {
+      category: this.currentCategory,
+      recipeName: this.recipeName,
+      ingredients: this.ingredients,
+      directions:this.directions,
+    },
+    success: function(data) {
+
+    }
+  })
+},
 
 
   },

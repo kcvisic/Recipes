@@ -71,12 +71,9 @@
                         <v-card-text>
 
                           <v-list style="min-height:50px;">
-                            <v-list-tile @click.native="" v-for="(r ,index) in recipes">
+                            <v-list-tile @click.native="">
+                              {{recipeName}}
 
-                              <v-chip
-                                close @input="recipes.splice(index, 1)"
-                                color="red"
-                               text-color="white">{{r}}</v-chip>
                             </v-list-tile>
 
                           </v-list>
@@ -175,7 +172,7 @@
                 </v-card-text>
               </v-card>
               <br />
-              <v-btn color="success" @click.native="">{{stepSubmitText}}</v-btn>
+              <v-btn color="success" @click="addFoodToDatabase">{{stepSubmitText}}</v-btn>
               <v-btn flat @click.native="currentStep=currentStep-1">{{stepBackText}}</v-btn>
             </v-stepper-content>
           </v-stepper>
