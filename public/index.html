@@ -28,8 +28,8 @@
             <v-icon dark>arrow_drop_down</v-icon>
           </v-toolbar-title>
           <v-list>
-            <v-list-tile v-for="i in categories" :string="categories.name" @click="">
-              <v-list-tile-title v-text="categories[0].name"><h1 style="color: #000"><strong>{{i.name}}</strong></h1></v-list-tile-title>
+            <v-list-tile v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories.name" @click="" :index="i">
+              <v-list-tile-title v-text="categories[i].name"><h1 style="color: #000"><strong>{{c.name}}</strong></h1></v-list-tile-title>
             </v-list-tile>
           </v-list>
       </v-toolbar>
