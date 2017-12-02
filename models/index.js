@@ -31,25 +31,4 @@ Object.keys(db).forEach(function(modelName) {
 });
 
 db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
-
-//*** *** ***
-// db.category = require('../models/category.js')(sequelize,Sequelize);
-// db.recipe = require('../models/recipe.js')(sequelize,Sequelize);
-// db.ingredient = require('../models/ingredient.js')(sequelize,Sequelize);
-// db.direction = require('../models/direction.js')(sequelize,Sequelize);
-// db.recipecategory = require('../models/recipe_category.js')(sequelize,Sequelize);
-
-// db.ingredient.belongsTo(db.recipe);
-// db.recipe.hasMany(db.ingredient);
-//
-// db.direction.belongsTo(db.recipe);
-// db.recipe.hasMany(db.direction);
-//
-// db.recipecategory.belongsTo(db.recipe);
-// db.recipe.hasMany(db.recipecategory);
-//
-// db.recipecategory.belongsTo(db.category);
-// db.category.hasMany(db.recipecategory);
-
 module.exports = db;
