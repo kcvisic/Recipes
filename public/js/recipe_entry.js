@@ -34,12 +34,11 @@ var app = new Vue({
         }
       })
     },
-    // AddRecipe(recipe){
-    //   this.recipes.push(recipe);
-    //   console.log(recipe)
-    //   this.clearable= true
-    //   this.chip=true
-    // },
+    AddRecipe(recipe){
+
+      console.log(recipe)
+  
+    },
     addIngredient(ingredient){
       this.ingredients.push(ingredient);
       this.clearable= true
