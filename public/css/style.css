@@ -4,11 +4,15 @@ body {
    background-repeat: repeat-x;
 
 }
-#carousel{
 
-  display:flex;
-  justify-content:center;
+#figureCaption {
+
+display:flex;
+justify-content:center;
+}
+#carousel{
   background-color: #9e7978;
+  color: #fff;
 }
 #recipeBackground{
   background-color: #9e7978;

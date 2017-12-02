@@ -1,25 +1,25 @@
 Vue.use(Vuetify);
 
 var app = new Vue({
-  el:"#app",
+  el: "#app",
   data: {
 
-      categories: [],
-      currentStep: 1,
-      currentCategory: {},
-      ingredients: [],
-      ingredient: "",
-      directions: [],
-      direction:"",
-      // recipes:[],
-      recipeName: "",
-      stepNextText: "Continue",
-      stepBackText: "Back",
-      stepSubmitText: "Submit",
-      toolbarColor: "pink",
-      clearable:false,
-      chip:true ,
-      addedFood:true
+    categories: [],
+    currentStep: 1,
+    currentCategory: {},
+    ingredients: [],
+    ingredient: "",
+    directions: [],
+    direction: "",
+    // recipes:[],
+    recipeName: "",
+    stepNextText: "Continue",
+    stepBackText: "Back",
+    stepSubmitText: "Submit",
+    toolbarColor: "pink",
+    clearable: false,
+    chip: true,
+    addedFood: true
 
 
   },
@@ -28,7 +28,7 @@ var app = new Vue({
     FoodCategories() {
       $.ajax({
         url: "/api/categories/",
-        success: function(data) {
+        success: function (data) {
           app.categories = data;
 
         }
@@ -40,37 +40,35 @@ var app = new Vue({
     //   this.clearable= true
     //   this.chip=true
     // },
-    addIngredient(ingredient){
+    addIngredient(ingredient) {
       this.ingredients.push(ingredient);
-      this.clearable= true
-      this.chip=true
+      this.clearable = true
+      this.chip = true
     },
-    addDirection(direction){
+    addDirection(direction) {
       this.directions.push(direction)
       console.log(direction)
-      this.clearable= true
-      this.chip=true
+      this.clearable = true
+      this.chip = true
     },
-    addFoodToDatabase: function() {
-  $.ajax({
-    method: "POST",
-    url: "/api/entry",
-    data: {
-      category: this.currentCategory,
-      recipeName: this.recipeName,
-      ingredients: this.ingredients,
-      directions:this.directions,
+    addFoodToDatabase: function () {
+      $.ajax({
+        method: "POST",
+        url: "/api/entry",
+        data: {
+          category: this.currentCategory,
+          recipeName: this.recipeName,
+          ingredients: this.ingredients,
+          directions: this.directions,
+        },
+        success: function (data) {
+
+        }
+      })
     },
-    success: function(data) {
-
-    }
-  })
-},
-
-
   },
-    created: function() {
-      this.FoodCategories();
+  created: function () {
+    this.FoodCategories();
 
-  },
+  }
 })

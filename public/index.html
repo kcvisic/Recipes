@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="/vuetify/dist/vuetify.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -11,15 +10,19 @@
 
 <body>
   <div id="app">
-
     <v-card color="grey lighten-4" flat>
-      <v-toolbar color="grey darken-1" dark>
+      <v-toolbar color="brown darken-3" dark>
         <v-toolbar-title>
           <span style="color: #ffffff">
             <strong>Serviche</strong>
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
+        <a href="/entry" style="color:#ffffff">
+          <v-btn icon>
+            <i class="material-icons">create</i>
+          </v-btn>
+        </a>
         <v-menu :nudge-width="50">
           <v-toolbar-title slot="activator">
             <span style="color: #ffffff">
@@ -28,28 +31,29 @@
             <v-icon dark>arrow_drop_down</v-icon>
           </v-toolbar-title>
           <v-list>
-            <v-list-tile v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories.name"  @click.native="setCategory(c)" :index="i">
-              <v-list-tile-title v-text="categories[i].name"><h1 style="color: #000"><strong>{{c.name}}</strong></h1></v-list-tile-title>
+            <v-list-tile v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories.name" @click.native="setCategory(c)"
+              :index="i">
+              <v-list-tile-title v-text="categories[i].name">
+                <h1 style="color: #000">
+                  <strong>{{c.name}}</strong>
+                </h1>
+              </v-list-tile-title>
             </v-list-tile>
           </v-list>
       </v-toolbar>
     </v-card>
-
     <carousel-3d v-if="showCategories">
-      <slide v-for="(c, i) in categories" v-if="c.Recipes.length > 0" @click.native="setCategory(c)" :index="i">
+      <slide v-for="(c, i) in categories" v-if="c.Recipes.length > 0" @click.native="setCategory(c)" :index="i" id="carousel">
         <img :src="c.image" />
 
         <figure>
-          <figcaption id="carousel" class="headline mb-0">{{c.name}}</figcaption>
+          <figcaption id="figureCaption" class="headline mb-0">{{c.name}}</figcaption>
         </figure>
       </slide>
     </carousel-3d>
     <v-app id="contentBackground">
       <v-content>
         <v-container id="recipeBackground">
-
-
-
           <div>
             <!-- <template is used to render the code within it you can use all the vue attributes
    like v-for and v-if to repeat and conditionally render blocks of code> -->
@@ -62,11 +66,12 @@
                 </v-toolbar>
                 <div>
                   <v-card>
-              
-                      <!-- loop through recipes in category, and dispaly only recipe name -->
-                          <div class="text-xs-center">
-                            <v-chip @click="setRecipe(r)" v-for="r in c.Recipes" v-if="c.Recipes.length > 0" color="brown darken-1" text-color="white" :index="i">{{r.name}}</v-chip>
-                          </div>  
+
+                    <!-- loop through recipes in category, and dispaly only recipe name -->
+                    <div class="text-xs-center">
+                      <v-chip @click="setRecipe(r)" v-for="r in c.Recipes" v-if="c.Recipes.length > 0" color="brown darken-1" text-color="white"
+                        :index="r">{{r.name}}</v-chip>
+                    </div>
                   </v-card>
                 </div>
               </v-card>
@@ -112,7 +117,6 @@
         </v-container>
       </v-content>
     </v-app>
-
   </div>
 </body>
 <script src="/jquery/dist/jquery.js"></script>
@@ -120,6 +124,5 @@
 <script src="/vuetify/dist/vuetify.js"></script>
 <script src="/vue-carousel-3d/dist/vue-carousel-3d.min.js"></script>
 <script src="/js/index.js"></script>
-
 
 </html>

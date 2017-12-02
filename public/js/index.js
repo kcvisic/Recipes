@@ -32,6 +32,7 @@ var app = new Vue({
       this.currentCategory = category;
       this.setRecipe(category.Recipes[0]);
       this.showRecipeInfo = false;
+      
     },
     setRecipe(recipe) {
       this.currentRecipe = recipe;
@@ -42,5 +43,8 @@ var app = new Vue({
   created: function () {
     this.getFoodCategories();
   },
-
+  img: {
+    name: "categories[1].name",
+    image: "categories[1].image"
+  }
 })
