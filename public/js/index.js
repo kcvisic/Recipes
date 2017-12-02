@@ -18,7 +18,7 @@ var app = new Vue({
     getFoodCategories() {
       $.ajax({
         url: "/api/categories/",
-        success: function(data) {
+        success: function (data) {
           app.categories = data;
           app.showCategories = true;
           app.setCategory(app.categories[0]);
@@ -39,7 +39,8 @@ var app = new Vue({
 
     }
   },
-  created: function() {
+  created: function () {
     this.getFoodCategories();
   },
+
 })
