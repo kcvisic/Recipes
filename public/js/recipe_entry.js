@@ -37,14 +37,16 @@ var app = new Vue({
     AddRecipe(recipe){
 
       console.log(recipe)
-  
+
     },
     addIngredient(ingredient){
+      this.ingredient= ""
       this.ingredients.push(ingredient);
       this.clearable= true
       this.chip=true
     },
     addDirection(direction){
+      this.direction= ""
       this.directions.push(direction)
       console.log(direction)
       this.clearable= true

@@ -17,11 +17,12 @@
       <slide v-for="(c, i) in categories"
               v-if="c.Recipes.length > 0"
               @click.native="setCategory(c)"
-              :index="i">
+              :index="i"
+            id="carousel" >
       <img :src="c.image"/>
 
         <figure>
-          <figcaption id="carousel" class="headline mb-0" >{{c.name}}</figcaption>
+          <figcaption id= "figuireCaption" class="title" >{{c.name}}</figcaption>
         </figure>
       </slide>
     </carousel-3d>
@@ -35,7 +36,7 @@
             <template  v-for="c in categories">
 
               <v-card v-if="currentCategory.name === c.name ">
-                <v-toolbar id="recipeToolbar">
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title >{{c.name}}</v-toolbar-title>
                 </v-toolbar>
                 <div>
@@ -57,12 +58,12 @@
           <template v-if="showRecipeInfo">
             <v-card style="margin-top: 20px; padding-bottom:5px;">
 
-              <v-toolbar id="currentRecipeToolbar">
+              <v-toolbar class = "currentToolbar">
                 <v-toolbar-title>{{currentRecipe.name}}</v-toolbar-title>
               </v-toolbar>
 
               <v-card style="margin:20px;">
-                <v-toolbar id="IngredientsToolbar">
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Ingredients</v-toolbar-title>
                 </v-toolbar>
                 <v-list>
@@ -75,7 +76,7 @@
               </v-card>
 
               <v-card style="margin:20px;">
-                <v-toolbar id="directionsTool">
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Directions</v-toolbar-title>
                 </v-toolbar>
                 <v-list>

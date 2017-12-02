@@ -14,7 +14,7 @@
 
     <v-app id="background">
       <v-content>
-        <v-container>
+        <v-container id="recipeBackground">
           <!-- set the step number to 1 -->
           <v-stepper light v-model="currentStep">
             <!-- show steps in stepper header -->
@@ -30,7 +30,7 @@
             <v-divider></v-divider>
             <v-stepper-content step="1">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Category</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -45,7 +45,7 @@
             </v-stepper-content>
             <v-stepper-content step=2>
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Recipe Name</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -90,7 +90,7 @@
             </v-stepper-content>
             <v-stepper-content step="3">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Ingredients</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -116,9 +116,12 @@
                           <v-card-text>
                             <v-list style="min-height:50px;">
                               <v-list-tile @click.native="" v-for="(i, index) in ingredients">
-                                <v-chip close @input="ingredients.splice(index, 1)"
-                                  color="red"
-                                 text-color="white">{{i}}</v-chip>
+                                <v-chip
+                                
+                                close @input="ingredients.splice(index, 1)"
+                                label outline color="red"
+                                text-color="black">
+                                 {{i}}</v-chip>
                               </v-list-tile>
                             </v-list>
                           </v-card-text>
@@ -134,7 +137,7 @@
             </v-stepper-content>
             <v-stepper-content step="4">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Directions</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -144,7 +147,7 @@
                         <v-text-field clearable="clearable" label="addDirection" v-model="direction"></v-text-field>
                       </v-flex>
                       <v-flex xs2>
-                        <v-btn style="margin:30px" @click="  addDirection(direction)" success>Add></v-btn>
+                        <v-btn style="margin:30px" @click="  addDirection(direction)" success >Add</v-btn>
                       </v-flex>
                     </v-layout>
                     <v-layout>
@@ -160,8 +163,8 @@
                               <v-list-tile @click.native="" v-for="(d , index) in directions">
 
                                 <v-chip close @input="directions.splice(index, 1)"
-                                  color="red"
-                                 text-color="white">{{d}}</v-chip>
+                                label outline color="red"
+                                 text-color="black">{{d}}</v-chip>
                                 </v-list-tile>
                             </v-list>
                           </v-card-text>
