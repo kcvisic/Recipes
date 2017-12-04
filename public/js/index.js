@@ -1,7 +1,13 @@
 Vue.use(Vuetify);
 
+/******************************************
+The Central Event Bus Instance
+*******************************************/
+let EventBus = new Vue();
+
 Vue.component('carousel-3d', Carousel3d.Carousel3d);
 Vue.component('slide', Carousel3d.Slide);
+
 
 var app = new Vue({
   el: "#app",
@@ -32,6 +38,13 @@ var app = new Vue({
       this.currentCategory = category;
       this.setRecipe(category.Recipes[0]);
       this.showRecipeInfo = false;
+
+    },
+    navCategory(category) {
+      console.log("New category: " + category.name);
+      this.currentCategory = category;
+      this.setRecipe(category.Recipes[0]);
+      this.showRecipeInfo = false;
       
     },
     setRecipe(recipe) {
@@ -46,5 +59,5 @@ var app = new Vue({
   img: {
     name: "categories[1].name",
     image: "categories[1].image"
-  }
+  },
 })
