@@ -19,7 +19,7 @@ var app = new Vue({
       toolbarColor: "pink",
       clearable:false,
       chip:true ,
-      addedFood:true
+      addedFood:true,
 
 
   },
@@ -39,18 +39,25 @@ var app = new Vue({
       console.log(recipe)
 
     },
+
     addIngredient(ingredient){
-      this.ingredient= ""
-      this.ingredients.push(ingredient);
-      this.clearable= true
-      this.chip=true
+      if(ingredient.length < 130 && ingredient.length > 0){
+        this.ingredient= ""
+        this.ingredients.push(ingredient);
+        this.clearable= true;
+        this.chip=true
+      }
     },
     addDirection(direction){
-      this.direction= ""
-      this.directions.push(direction)
-      console.log(direction)
-      this.clearable= true
-      this.chip=true
+      if(direction.length < 130&& direction.length > 0){
+        this.direction= ""
+        this.directions.push(direction)
+        console.log(direction)
+        this.clearable= true
+        this.chip=true
+      }
+
+
     },
     addFoodToDatabase: function() {
   $.ajax({
