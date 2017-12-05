@@ -4,7 +4,6 @@ body {
    background-repeat: repeat-x;
 
 }
-<<<<<<< HEAD
 
 #figureCaption {
 
@@ -14,14 +13,6 @@ justify-content:center;
 #carousel{
   background-color: #9e7978;
   color: #fff;
-=======
-#figuireCaption{
-  display:flex;
-  justify-content:center;
-}
-#carousel{
-background-color: #9e7978;
->>>>>>> b3b6a20d2af2a78526b7a8ef9f55548c2bc65030
 }
 #recipeBackground{
   background-color: #9e7978;
