@@ -33,8 +33,12 @@ var app = new Vue({
       })
     },
     AddRecipe(recipe){
-
+      this.recipeName=""
       console.log(recipe)
+      app.addedRecipe = true;
+      setTimeout(function(){
+          app.addedRecipe= false;
+        },3000)
 
     },
 

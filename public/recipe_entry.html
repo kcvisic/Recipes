@@ -71,9 +71,10 @@
                           <v-list style="min-height:50px;">
                             <v-list-tile @click.native="">
                               {{recipeName}}
-
                             </v-list-tile>
-
+                            <v-alert transition="scale-transition" :dismissible="true" color="success" icon="check_circle" v-model="addedRecipe">
+                        Successfully created recipe name! 
+                      </v-alert>
                           </v-list>
                         </v-card-text>
                       </v-card>
