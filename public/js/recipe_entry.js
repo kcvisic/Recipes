@@ -4,22 +4,22 @@ var app = new Vue({
   el: "#app",
   data: {
 
-    categories: [],
-    currentStep: 1,
-    currentCategory: {},
-    ingredients: [],
-    ingredient: "",
-    directions: [],
-    direction: "",
-    // recipes:[],
-    recipeName: "",
-    stepNextText: "Continue",
-    stepBackText: "Back",
-    stepSubmitText: "Submit",
-    toolbarColor: "pink",
-    clearable: false,
-    chip: true,
-    addedFood: true
+      categories: [],
+      currentStep: 1,
+      currentCategory: {},
+      ingredients: [],
+      ingredient: "",
+      directions: [],
+      direction:"",
+      // recipes:[],
+      recipeName: "",
+      stepNextText: "Continue",
+      stepBackText: "Back",
+      stepSubmitText: "Submit",
+      toolbarColor: "pink",
+      clearable:false,
+      chip:true ,
+      addedFood:true,
 
 
   },
@@ -34,22 +34,30 @@ var app = new Vue({
         }
       })
     },
-    // AddRecipe(recipe){
-    //   this.recipes.push(recipe);
-    //   console.log(recipe)
-    //   this.clearable= true
-    //   this.chip=true
-    // },
-    addIngredient(ingredient) {
-      this.ingredients.push(ingredient);
-      this.clearable = true
-      this.chip = true
+    AddRecipe(recipe){
+
+      console.log(recipe)
+
     },
-    addDirection(direction) {
-      this.directions.push(direction)
-      console.log(direction)
-      this.clearable = true
-      this.chip = true
+
+    addIngredient(ingredient){
+      if(ingredient.length < 130 && ingredient.length > 0){
+        this.ingredient= ""
+        this.ingredients.push(ingredient);
+        this.clearable= true;
+        this.chip=true
+      }
+    },
+    addDirection(direction){
+      if(direction.length < 130&& direction.length > 0){
+        this.direction= ""
+        this.directions.push(direction)
+        console.log(direction)
+        this.clearable= true
+        this.chip=true
+      }
+
+
     },
     addFoodToDatabase: function () {
       $.ajax({

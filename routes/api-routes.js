@@ -96,14 +96,14 @@ module.exports = function(app) {
         .then(function(recipe) {
           r = recipe;
           return db.Category.findOne({
-            name: req.body.category
+            where: {name: req.body.category}
           }, {
             transaction: t
           })
         })
         .then(function(category) {
           console.log("Found Category");
-        
+
           return r.setCategories(category, {
             transaction: t
           });

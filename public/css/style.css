@@ -4,6 +4,7 @@ body {
    background-repeat: repeat-x;
 
 }
+<<<<<<< HEAD
 
 #figureCaption {
 
@@ -13,6 +14,14 @@ justify-content:center;
 #carousel{
   background-color: #9e7978;
   color: #fff;
+=======
+#figuireCaption{
+  display:flex;
+  justify-content:center;
+}
+#carousel{
+background-color: #9e7978;
+>>>>>>> b3b6a20d2af2a78526b7a8ef9f55548c2bc65030
 }
 #recipeBackground{
   background-color: #9e7978;
@@ -20,27 +29,16 @@ justify-content:center;
 #contentBackground{
   background-image: url("/images/img5.jpg");
 }
-#recipeToolbar{
-  /*background-color: #525b8c96;*/
+
+.currentToolbar{
   background-image: url("/images/img5.jpg");
    background-repeat: repeat-x;
 }
-#currentRecipeToolbar{
-  background-image: url("/images/img5.jpg");
-   background-repeat: repeat-x;
-}
-#IngredientsToolbar{
-  background-image: url("/images/img5.jpg");
-   background-repeat: repeat-x;
-}
-#directionsToolbar{
-  background-image: url("/images/img5.jpg");
-   background-repeat: repeat-x;
-}
+
 #textBox{
   margin-top:20px;
 }
 #background{
   background-image: url("/images/img5.jpg");
-  
+
 }

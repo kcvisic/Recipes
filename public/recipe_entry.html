@@ -14,7 +14,7 @@
 
     <v-app id="background">
       <v-content>
-        <v-container>
+        <v-container id="recipeBackground">
           <!-- set the step number to 1 -->
           <v-stepper light v-model="currentStep">
             <!-- show steps in stepper header -->
@@ -30,7 +30,7 @@
             <v-divider></v-divider>
             <v-stepper-content step="1">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Category</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -40,12 +40,10 @@
               </v-card>
               <br />
               <v-btn color="primary" @click.native="currentStep=currentStep+1">{{stepNextText}}</v-btn>
-
-
             </v-stepper-content>
             <v-stepper-content step=2>
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Recipe Name</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -90,7 +88,7 @@
             </v-stepper-content>
             <v-stepper-content step="3">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Ingredients</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -113,12 +111,15 @@
                           <v-toolbar color="" dark>
                             <v-toolbar-title>Current Ingredients</v-toolbar-title>
                           </v-toolbar>
-                          <v-card-text>
+                          <v-card-text style="padding: 0">
                             <v-list style="min-height:50px;">
-                              <v-list-tile @click.native="" v-for="(i, index) in ingredients">
-                                <v-chip close @input="ingredients.splice(index, 1)"
-                                  color="red"
-                                 text-color="white">{{i}}</v-chip>
+                              <v-list-tile @click="" v-for="(i, index) in ingredients">
+                                <v-list-tile-content>
+                                  <div style="display:flex;justify-content:space-between; align-items:center;width:100%">
+                                    <span style="word-wrap:break-word">{{i}}</span>
+                                    <v-icon @click="ingredients.splice(index,1)">close</v-icon>
+                                  </div>
+                                </v-list-tile-content>
                               </v-list-tile>
                             </v-list>
                           </v-card-text>
@@ -134,7 +135,7 @@
             </v-stepper-content>
             <v-stepper-content step="4">
               <v-card>
-                <v-toolbar :color="toolbarColor" dark>
+                <v-toolbar class = "currentToolbar">
                   <v-toolbar-title>Directions</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -144,7 +145,7 @@
                         <v-text-field clearable="clearable" label="addDirection" v-model="direction"></v-text-field>
                       </v-flex>
                       <v-flex xs2>
-                        <v-btn style="margin:30px" @click="  addDirection(direction)" success>Add></v-btn>
+                        <v-btn style="margin:30px" @click="  addDirection(direction)" success >Add</v-btn>
                       </v-flex>
                     </v-layout>
                     <v-layout>
@@ -153,16 +154,16 @@
                           <v-toolbar color="" dark>
                             <v-toolbar-title>Current Directions</v-toolbar-title>
                           </v-toolbar>
-                          <v-card-text>
+                          <v-card-text style="padding: 0">
                             <v-list style="min-height:50px;">
-
-
-                              <v-list-tile @click.native="" v-for="(d , index) in directions">
-
-                                <v-chip close @input="directions.splice(index, 1)"
-                                  color="red"
-                                 text-color="white">{{d}}</v-chip>
-                                </v-list-tile>
+                              <v-list-tile @click="" v-for="(d, index) in directions">
+                                <v-list-tile-content>
+                                  <div style="display:flex;justify-content:space-between; align-items:center;width:100%">
+                                    <span style="word-wrap:break-word">{{d}}</span>
+                                    <v-icon @click="directions.splice(index,1)">close</v-icon>
+                                  </div>
+                                </v-list-tile-content>
+                              </v-list-tile>
                             </v-list>
                           </v-card-text>
                         </v-card>
