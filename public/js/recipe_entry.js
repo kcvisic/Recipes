@@ -11,16 +11,14 @@ var app = new Vue({
       ingredient: "",
       directions: [],
       direction:"",
-      // recipes:[],
       recipeName: "",
       stepNextText: "Continue",
       stepBackText: "Back",
       stepSubmitText: "Submit",
       toolbarColor: "pink",
       clearable:false,
-      chip:true ,
       addedFood:true,
-
+      addedRecipe:false,
 
   },
 
@@ -45,7 +43,7 @@ var app = new Vue({
         this.ingredient= ""
         this.ingredients.push(ingredient);
         this.clearable= true;
-        this.chip=true
+
       }
     },
     addDirection(direction){
@@ -54,7 +52,7 @@ var app = new Vue({
         this.directions.push(direction)
         console.log(direction)
         this.clearable= true
-        this.chip=true
+
       }
 
 
@@ -70,7 +68,10 @@ var app = new Vue({
       directions:this.directions,
     },
     success: function(data) {
-
+      app.addedRecipe = true;
+      setTimeout(function(){
+          app.addedRecipe= false;
+        },2000)
     }
   })
 },

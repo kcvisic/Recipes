@@ -175,6 +175,9 @@
               <br />
               <v-btn color="success" @click="addFoodToDatabase">{{stepSubmitText}}</v-btn>
               <v-btn flat @click.native="currentStep=currentStep-1">{{stepBackText}}</v-btn>
+              <v-alert transition="scale-transition" :dismissible="true" color="success" icon="check_circle" v-model="addedRecipe">
+          Successfully added your recipe.
+        </v-alert>
             </v-stepper-content>
           </v-stepper>
         </v-container>
