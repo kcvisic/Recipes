@@ -23,12 +23,7 @@ var app = new Vue({
 
   },
   computed: {
-    progress() {
-      return Math.min(130, this.ingredient.length * 1)
-    },
-    color() {
-      return ['success', 'warning', 'error'][Math.floor(this.progress / 60)]
-    },
+
     progress() {
       return Math.min(130, this.direction.length * 1)
     },
