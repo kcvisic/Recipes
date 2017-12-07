@@ -46,9 +46,7 @@ var app = new Vue({
       this.recipeName=""
       console.log(recipe)
       app.addedRecipe = true;
-      setTimeout(function(){
-          app.addedRecipe= false;
-        },3000)
+  
 
     },
 

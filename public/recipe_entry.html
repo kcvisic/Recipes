@@ -55,7 +55,7 @@
                         <v-text-field  clearable="clearable" v-model="recipeName" label="Recipe Name"></v-text-field>
                           </v-flex>
                         <v-flex xs2>
-                          <v-btn style="margin:30px" @click="AddRecipe(recipeName)" success>Add</v-btn>
+                          <v-btn style="margin:30px" @click="AddRecipe(recipeName)" success @click.native="currentStep=currentStep+1">Add</v-btn>
                         </v-flex>
                         </v-layout>
                       </v-flex>
@@ -72,9 +72,7 @@
                             <v-list-tile @click.native="">
                               {{recipeName}}
                             </v-list-tile>
-                            <v-alert transition="scale-transition" :dismissible="true" color="success" icon="check_circle" v-model="addedRecipe">
-                        Successfully created recipe name!
-                      </v-alert>
+                    
                           </v-list>
                         </v-card-text>
                       </v-card>
