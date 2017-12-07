@@ -19,7 +19,22 @@ var app = new Vue({
       clearable:false,
       addedFood:true,
       addedRecipe:false,
+      custom:true,
 
+  },
+  computed: {
+    progress() {
+      return Math.min(130, this.ingredient.length * 1)
+    },
+    color() {
+      return ['success', 'warning', 'error'][Math.floor(this.progress / 60)]
+    },
+    progress() {
+      return Math.min(130, this.direction.length * 1)
+    },
+    color() {
+      return ['success', 'warning', 'error'][Math.floor(this.progress / 60)]
+    }
   },
 
   methods: {
@@ -51,7 +66,7 @@ var app = new Vue({
       }
     },
     addDirection(direction){
-      if(direction.length < 130&& direction.length > 0){
+      if(direction.length < 130 && direction.length > 0){
         this.direction= ""
         this.directions.push(direction)
         console.log(direction)

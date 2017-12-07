@@ -73,7 +73,7 @@
                               {{recipeName}}
                             </v-list-tile>
                             <v-alert transition="scale-transition" :dismissible="true" color="success" icon="check_circle" v-model="addedRecipe">
-                        Successfully created recipe name! 
+                        Successfully created recipe name!
                       </v-alert>
                           </v-list>
                         </v-card-text>
@@ -99,6 +99,7 @@
                         <v-layout>
                           <v-flex xs10>
                             <v-text-field  clearable="clearable" label="Add Ingredient" v-model="ingredient"></v-text-field>
+                          <v-progress-linear v-if="custom" slot="progress" :value="progress" height="7" :color="color"></v-progress-linear>
                           </v-flex>
                           <v-flex xs2>
                             <v-btn style="margin:30px" @click="addIngredient(ingredient)" success>Add</v-btn>
@@ -144,6 +145,7 @@
                     <v-layout>
                       <v-flex xs10>
                         <v-text-field clearable="clearable" label="addDirection" v-model="direction"></v-text-field>
+                          <v-progress-linear v-if="custom" slot="progress" :value="progress" height="7" :color="color"></v-progress-linear>
                       </v-flex>
                       <v-flex xs2>
                         <v-btn style="margin:30px" @click="  addDirection(direction)" success >Add</v-btn>
