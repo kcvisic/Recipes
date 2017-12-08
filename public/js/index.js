@@ -44,7 +44,6 @@ var app = new Vue({
       this.currentCategory = category;
       this.setRecipe(category.Recipes[0]);
       this.showRecipeInfo = false;
-      Carousel3d.Slide.methods.goTo()
     },
     setRecipe(recipe) {
       this.currentRecipe = recipe;
