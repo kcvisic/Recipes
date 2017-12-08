@@ -43,7 +43,7 @@ var app = new Vue({
       })
     },
     AddRecipe(recipe){
-  
+
       console.log(recipe)
 
 
@@ -51,7 +51,7 @@ var app = new Vue({
     },
 
     addIngredient(ingredient){
-       if(ingredient.length < 130 && ingredient.length > 0){
+       if(ingredient.length < 120 && ingredient.length > 0){
         this.ingredient= ""
         this.ingredients.push(ingredient);
         console.log(ingredient)
@@ -60,7 +60,7 @@ var app = new Vue({
       }
     },
     addDirection(direction){
-       if(direction.length < 130 && direction.length > 0){
+       if(direction.length < 120 && direction.length > 0){
         this.direction= ""
         this.directions.push(direction)
         console.log(direction)
