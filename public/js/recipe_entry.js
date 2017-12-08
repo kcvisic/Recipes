@@ -25,7 +25,7 @@ var app = new Vue({
   computed: {
 
     progress() {
-      return Math.min(130, this.direction.length * 1)
+      return Math.min(120, this.direction.length * 1)
     },
     color() {
       return ['success', 'warning', 'error'][Math.floor(this.progress / 60)]
