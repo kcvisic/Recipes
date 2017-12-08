@@ -11,8 +11,21 @@
 
 <body>
   <div id="app">
-
-
+    <v-card color="grey lighten-4" flat>
+     <v-toolbar color="brown darken-3" dark>
+      <v-toolbar-title>
+       <span style="color: #ffffff">
+        <strong>Serviche</strong>
+       </span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <a href="/entry" style="color:#ffffff">
+       <v-btn icon>
+        <i class="material-icons">create</i>
+       </v-btn>
+      </a>
+     </v-toolbar>
+    </v-card>
     <carousel-3d v-if="showCategories">
       <slide v-for="(c, i) in categories"
               v-if="c.Recipes.length > 0"
