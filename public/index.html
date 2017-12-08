@@ -31,7 +31,8 @@
             <v-icon dark>arrow_drop_down</v-icon>
           </v-toolbar-title>
           <v-list>
-<v-list-tile class="nav-bar" v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories[i].name" @click="navCategory(c)" v-bind:index="i">
+            <v-list-tile class="nav-bar" v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories[i].name" @click="navCategory(c)"
+             :index="i">
               <v-list-tile-title v-text="categories[i].name">
               </v-list-tile-title>
             </v-list-tile>

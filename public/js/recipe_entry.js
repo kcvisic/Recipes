@@ -11,17 +11,25 @@ var app = new Vue({
       ingredient: "",
       directions: [],
       direction:"",
-      // recipes:[],
       recipeName: "",
       stepNextText: "Continue",
       stepBackText: "Back",
       stepSubmitText: "Submit",
       toolbarColor: "pink",
       clearable:false,
-      chip:true ,
       addedFood:true,
+      addedRecipe:false,
+      custom:true,
 
+  },
+  computed: {
 
+    progress() {
+      return Math.min(130, this.direction.length * 1)
+    },
+    color() {
+      return ['success', 'warning', 'error'][Math.floor(this.progress / 60)]
+    }
   },
 
   methods: {
@@ -35,41 +43,52 @@ var app = new Vue({
       })
     },
     AddRecipe(recipe){
-
+  
       console.log(recipe)
+
+
 
     },
 
     addIngredient(ingredient){
-      if(ingredient.length < 130 && ingredient.length > 0){
+       if(ingredient.length < 130 && ingredient.length > 0){
         this.ingredient= ""
         this.ingredients.push(ingredient);
+        console.log(ingredient)
         this.clearable= true;
-        this.chip=true
+
       }
     },
     addDirection(direction){
-      if(direction.length < 130&& direction.length > 0){
+       if(direction.length < 130 && direction.length > 0){
         this.direction= ""
         this.directions.push(direction)
         console.log(direction)
         this.clearable= true
-        this.chip=true
-      }
+
+       }
 
 
     },
-    addFoodToDatabase: function () {
-      $.ajax({
-        method: "POST",
-        url: "/api/entry",
-        data: {
-          category: this.currentCategory,
-          recipeName: this.recipeName,
-          ingredients: this.ingredients,
-          directions: this.directions,
-        },
-        success: function (data) {
+    addFoodToDatabase: function() {
+  $.ajax({
+    method: "POST",
+    url: "/api/entry",
+    data: {
+      category: this.currentCategory,
+      recipeName: this.recipeName,
+      ingredients: this.ingredients,
+      directions:this.directions,
+    },
+    success: function(data) {
+      app.addedRecipe = true;
+      setTimeout(function(){
+          app.addedRecipe= false;
+        },2000)
+    }
+  })
+},
+
 
         }
       })
