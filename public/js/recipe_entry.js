@@ -43,29 +43,30 @@ var app = new Vue({
       })
     },
     AddRecipe(recipe){
-      this.recipeName=""
-      console.log(recipe)
-      app.addedRecipe = true;
   
+      console.log(recipe)
+
+
 
     },
 
     addIngredient(ingredient){
-      if(ingredient.length < 130 && ingredient.length > 0){
+       if(ingredient.length < 130 && ingredient.length > 0){
         this.ingredient= ""
         this.ingredients.push(ingredient);
+        console.log(ingredient)
         this.clearable= true;
 
       }
     },
     addDirection(direction){
-      if(direction.length < 130 && direction.length > 0){
+       if(direction.length < 130 && direction.length > 0){
         this.direction= ""
         this.directions.push(direction)
         console.log(direction)
         this.clearable= true
 
-      }
+       }
 
 
     },
