@@ -24,6 +24,23 @@
         <i class="material-icons">create</i>
        </v-btn>
       </a>
+
+      <v-menu :nudge-width="50">
+        <v-toolbar-title slot="activator">
+          <span style="color: #ffffff">
+            <strong>Choose a Food Category</strong>
+          </span>
+          <v-icon dark>arrow_drop_down</v-icon>
+        </v-toolbar-title>
+        <v-list>
+          <v-list-tile class="nav-bar" v-for="(c, i) in categories" v-if="c.Recipes.length > 0" :string="categories[i].name" @click="navCategory(c)"
+           :index="i">
+            <v-list-tile-title v-text="categories[i].name">
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+
      </v-toolbar>
     </v-card>
     <carousel-3d v-if="showCategories">
@@ -54,14 +71,24 @@
                 </v-toolbar>
                 <div>
                   <v-card>
+
+                    <!-- code from K
                     <v-list>
-                      <!-- loop through recipes in category, and dispaly only recipe name -->
+                       //loop through recipes in category, and dispaly only recipe name
                         <v-list-tile @click="setRecipe(r)" v-for="r in c.Recipes">
                           <v-list-tile-content>
                            <v-list-tile-title v-text="r.name"></v-list-tile-title>
                           </v-list-tile-content>
                         </v-list-tile>
                     </v-list>
+                    -->
+
+                    <!-- code from B -->
+                    <div class="text-xs-center">
+                      <v-chip @click="setRecipe(r)" v-for="r in c.Recipes" v-if="c.Recipes.length > 0" color="brown darken-1" text-color="white"
+                        :index="r">{{r.name}}</v-chip>
+                    </div>
+
                   </v-card>
                 </div>
               </v-card>
