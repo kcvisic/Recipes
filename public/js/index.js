@@ -28,7 +28,7 @@ var app = new Vue({
     },
     //the currentCategory is set on the slide click
     setCategory(category) {
-      console.log("Setting category: " + category.name);
+  
       this.currentCategory = category;
       this.setRecipe(category.Recipes[0]);
       this.showRecipeInfo = false;

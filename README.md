@@ -39,3 +39,5 @@ npm start
 ## Viewing the app
 
 Open your browser and type the following URL `http://localhost:8080`
+
+## See the link here: https://recipes-service-kc.herokuapp.com/
